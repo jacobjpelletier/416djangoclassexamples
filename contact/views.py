@@ -6,6 +6,9 @@ def contact(request):
 
     # Create a form instance and populate it with data from the request if request is a POST (request.POST parts works)
     # if not, create an empty form instance (None parts works below)
+
+    # the user has just submitted the form
+    # access the fields and save into the db
     form = ContactForm(request.POST or None)
 
     # Check to see if request is a POST

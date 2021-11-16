@@ -3,6 +3,13 @@ from .models import Contact
 
 
 class ContactForm(forms.ModelForm):
+    '''
+    this says for the model of this form, use model = contact
+    if you want to select columns for forms, you can:
+      fields = ['first_name', 'last_name']
+    if you want to include all columns from model:
+      fields = '__all__'
+    '''
     class Meta:
         model = Contact
         # fields = ['first_name', 'last_name', 'email', 'message'] # individual fields can be included this way as well
