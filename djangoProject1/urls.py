@@ -54,4 +54,5 @@ urlpatterns = [
     path('tasks/', include('tasks.urls')),
     path('tasksWithModels/', include('tasksWithModels.urls')),
     path('contact/', include('contact.urls')),
+    path('products/', include('products.urls')),
 ]

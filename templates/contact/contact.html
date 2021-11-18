@@ -18,12 +18,44 @@
          </div>
     {% endfor %}
 
-
+    <!-- within container of base.html -->
     <div class="row my-3">
+
+        <!--NOTE: never trust client validation -->
 
         <form action="{% url 'contact' %}" method="post">
             {% csrf_token %}
+            {%  comment %}
+                to access individually, do this:
+
+                <div class="row">
+                    <div class="col">
+                        {{ form.first_name.label }}
+                        {{ form.first_name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.last_name.label }}
+                        {{ form.last_name }}
+                    </div>
+                </div>
+
+                alternatively, instead of using form.etc, you could write form html directly. wont change how server cheks values
+
+                take html form generates, then paste into in the col divs
+
+                or you can add place holder to attrs in widgets  :
+
+                            'first_name': forms.TextInput(attrs={
+                                'class': 'form-control',
+                                'placeholder': 'Enter your name',
+                                'style': 'color: red',
+                                }),                            
+
+            {%  endcomment %}
             {{ form.as_p }}
+            <!-- by changing type from form to submit, you change to POST method -->
             <button type="submit" class="btn btn-primary">Send</button>
         </form>
 
