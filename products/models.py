@@ -20,5 +20,8 @@ class Product(models.Model):
     '''
     category = models.CharField(max_length=20, blank=True, choices=PRODUCT_CATEGORY)
 
+    '''
+    allows admin to see data rather than just a python object
+    '''
     def __str__(self):
         return self.description

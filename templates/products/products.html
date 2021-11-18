@@ -23,6 +23,11 @@
         {% for product in products %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
+                {% comment %}
+                    product from context recieved from the view.
+                    each product of products is a row of the table
+                    then for each row has some column which can be read (i.e. product.description)
+                {% endcomment %}
                 <td>{{ product.description }}</td>
                 <td>${{ product.price }}</td>
                 <td>{{ product.quantity }}</td>
@@ -37,6 +42,16 @@
                     </a>
                 </td>
             </tr>
+                {% comment %}
+                    <ul>
+                    {%  for product in products %}
+                        <li>{{  product.description }}
+                            <a href="{ url 'update' product.id %}">Update</a>
+                        </li>
+                    {%  endfor %}
+                    </ul>
+                    <a href="{%  url 'create' %}"> Add new prodict</a>
+                {% endcomment %}
         {% endfor %}
         </tbody>
     </table>

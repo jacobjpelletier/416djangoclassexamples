@@ -5,13 +5,24 @@
     Product Form
 {% endblock %}
 
+
+        {% comment %}
+        not using crispy, so we did this instead in class:
+            {% block body %}
+            <h1> add new product </h1>
+                {{  form.as_p  }} # generates form as a p tag
+                <form>
+
+                </form>
+            {%  endblock %}
+        {%  endcomment %}
+
 {% block body %}
 
     <h1>Product Form</h1>
     <form method="post" action="">
         {% csrf_token %}
         {{ form|crispy }}
-
         <div class="my-3">
             <a href="{% url 'view_products' %}" class="btn btn-info"><i class="fas fa-arrow-left"></i> Go Back</a>
             <button type="reset" class="btn btn-warning"><i class="fas fa-redo-alt"></i> Reset</button>
