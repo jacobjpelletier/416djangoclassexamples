@@ -20,6 +20,7 @@ def register_view(request):
         # We use Django's UserCreationForm which is a model created by Django to create a new user.
         # UserCreationForm has three fields by default: username (from the user model), password1, and password2.
         # If you want to include email as well, switch to our own custom form called UserRegistrationForm
+        # UserCreationForm() alone creates a simple user form
         form = UserCreationForm(request.POST)
         # check whether it's valid: for example it verifies that password1 and password2 match
         if form.is_valid():
@@ -45,18 +46,28 @@ def login_view(request):
     # if the request method is a post
     if request.method == 'POST':
         # Plug the request.post in AuthenticationForm
+        # plug data from client side into table rows
         form = AuthenticationForm(data=request.POST)
+        '''
+        in class:
+        context = {'form': form}
+        '''
         # check whether it's valid:
         if form.is_valid():
             # get the user info from the form data and login the user
+            # grab user data from client side
             user = form.get_user()
+            # import login method from django.contrib.auth
             login(request, user)
             # redirect the user to index page
             return redirect('index')
     else:
         # Create an empty instance of Django's AuthenticationForm to generate the necessary html on the template.
         form = AuthenticationForm()
-
+    '''
+    in class:
+    return render(request, 'auth/login.html', context)
+    '''
     return render(request, 'auth/login.html', {'form': form})
 
 

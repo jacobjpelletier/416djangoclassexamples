@@ -1,0 +1,32 @@
+I. Authentication vs Authorization
+    Authentication: the process of verifying and proving that you are who you claim
+    Authorization: the process of specifying or granting privileges and access to users
+
+II. Django can do these
+
+III. how to store a password
+    1. don't store it in plain text fool
+    2. use a hashing algorithm instead
+        a. we can then store this hashing
+        b. SHA-256 or salt hash
+
+IV. what is a hash function
+    1. takes in an input and generates a deterministic output
+        a. the same password generates the same hash output every time
+        b. it is a one-way function
+        c. would have to brute force hash
+
+V. create this in Django
+    1. create application name
+        a. don't forget to add to root URLs
+    2. create URLS
+    3. create views
+    4. create .htmls
+
+VI. authentication form
+    1. allows you to easily write a login page
+    2. will need to allow cookies to allow user to login
+
+
+VII. UserCreationForm
+    1. allows you yo easily write a login page
