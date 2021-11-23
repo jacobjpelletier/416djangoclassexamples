@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'tasksWithModels.apps.TodoConfig',
     'contact.apps.ContactConfig',
     'products.apps.ProductsConfig',
+    'authorization.apps.AccountsConfig',
     'crispy_forms',
 ]
 

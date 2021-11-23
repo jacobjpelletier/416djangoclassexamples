@@ -85,6 +85,7 @@ def update_product(request, id):
 
 
 def delete_product(request, id):
+    # we will need id because we need to know which particular row of Products table we are deleting
     # Get the product based on its id
     product = Product.objects.get(id=id)
 

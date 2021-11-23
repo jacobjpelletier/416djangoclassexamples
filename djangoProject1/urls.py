@@ -55,4 +55,5 @@ urlpatterns = [
     path('tasksWithModels/', include('tasksWithModels.urls')),
     path('contact/', include('contact.urls')),
     path('products/', include('products.urls')),
+    path('auth/', include('authorization.urls')),
 ]
