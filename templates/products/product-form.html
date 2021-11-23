@@ -22,6 +22,16 @@
     <h1>Product Form</h1>
     <form method="post" action="">
         {% csrf_token %}
+        {% comment %}
+            form|crispy allows us to use crispy form
+            don't forget to add the bootstrap CSS and JS in base.html
+            see products/add to see crispy form
+                takes care of:
+                    styling
+                    generating error messages
+                you can see from page source it generates input tags and bootstrap classes
+            it saves some time essentially
+        {% endcomment %}
         {{ form|crispy }}
         <div class="my-3">
             <a href="{% url 'view_products' %}" class="btn btn-info"><i class="fas fa-arrow-left"></i> Go Back</a>

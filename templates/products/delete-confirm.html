@@ -7,6 +7,12 @@
 {% block body %}
     <h1>Confirm</h1>
 
+    {% comment %}
+        add a form to handle delete operation
+        we will need to use post method
+        then add csrf token
+    {%  endcomment %}
+
     <form method="post" action="{% url 'delete_product' product.id %}">
         {% csrf_token %}
         <h4>Are you sure that you want to delete

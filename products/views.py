@@ -85,10 +85,17 @@ def update_product(request, id):
 
 
 def delete_product(request, id):
+    '''
+    class code:
+    product = Product.objects.get(id=id)
+    context = {'product': product}
+    return render(request, 'products/delete-confirm.html', context)
+
+
+    '''
     # we will need id because we need to know which particular row of Products table we are deleting
     # Get the product based on its id
     product = Product.objects.get(id=id)
-
     # if this is a POST request, we need to delete the form data
     if request.method == 'POST':
         product.delete()
@@ -97,3 +104,5 @@ def delete_product(request, id):
 
     # if the request is not post, render the page with the product's info
     return render(request, 'products/delete-confirm.html', {'product': product})
+
+
